@@ -1,0 +1,480 @@
+/* --- SETTING DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* --- NAVIGASI GLOWING --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(11, 12, 16, 0.95);
+    padding: 20px 8%;
+    border-bottom: 2px solid #1f2833;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+nav .logo span {
+    color: #45f3ff;
+    text-shadow: 0 0 10px #45f3ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #c5a1ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #45f3ff;
+}
+
+/* --- HERO BANNER --- */
+header {
+    height: 60vh;
+    background: linear-gradient(rgba(11, 12, 16, 0.7), #0b0c10), url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ff007f, #45f3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #abb8c3;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 12px 35px;
+    background: linear-gradient(45deg, #ff007f, #7928ca);
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(255, 0, 127, 0.4);
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 25px rgba(69, 243, 255, 0.6);
+}
+
+/* --- GRID LAYANAN GAME --- */
+.topup-section {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.topup-section h2 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.section-subtitle {
+    color: #6674cc;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.game-card {
+    background: #1f2833;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(69, 243, 255, 0.3);
+    border-color: #45f3ff;
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ff007f;
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.game-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.game-card:hover img {
+    transform: scale(1.08);
+}
+
+.game-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.game-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.game-info p {
+    color: #45f3ff;
+    font-size: 0.9rem;
+}
+
+/* --- FORMULIR CANGGIH --- */
+.form-container {
+    max-width: 650px;
+    margin: 40px auto;
+    background: #151a22;
+    border: 1px solid #45f3ff;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(69, 243, 255, 0.1);
+}
+
+.form-header h3 {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #45f3ff;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #1f2833;
+    padding-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #c5a1ff;
+    font-weight: 600;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 14px;
+    background: #0b0c10;
+    border: 1px solid #1f2833;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-group input[type="number"]:focus {
+    border-color: #ff007f;
+}
+
+/* Paket Nominal */
+.nominal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.nominal-item {
+    background: #0b0c10;
+    border: 1px solid #1f2833;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nominal-item:hover {
+    border-color: #45f3ff;
+    background: rgba(69, 243, 255, 0.05);
+}
+
+.nominal-item.active {
+    border-color: #45f3ff;
+    background: #45f3ff;
+    color: #0b0c10;
+    box-shadow: 0 0 15px rgba(69, 243, 255, 0.4);
+}
+
+/* Pembayaran */
+.pay-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.pay-card {
+    background: #0b0c10;
+    border: 1px solid #1f2833;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.pay-card input {
+    accent-color: #ff007f;
+}
+
+/* Tombol Submit */
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, #45f3ff, #ff007f);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.3);
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    box-shadow: 0 5px 25px rgba(69, 243, 255, 0.6);
+    transform: scale(1.01);
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #050508;
+    padding: 25px;
+    text-align: center;
+    border-top: 1px solid #1f2833;
+    color: #666;
+    font-size: 0.9rem;
+}/* --- GAYA TOMBOL LOGIN DI NAVIGASI --- */
+.btn-login-nav {
+    background: linear-gradient(45deg, #ff007f, #7928ca);
+    padding: 8px 20px;
+    border-radius: 20px;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+    transition: 0.3s;
+}
+
+.btn-login-nav:hover {
+    box-shadow: 0 0 15px rgba(69, 243, 255, 0.6);
+    transform: scale(1.05);
+}
+
+/* --- GAYA POP-UP MODAL LOGIN --- */
+.modal-overlay {
+    display: none; /* Tersembunyi secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #151a22;
+    border: 1px solid #45f3ff;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(69, 243, 255, 0.2);
+    animation: modalMasuk 0.4s ease;
+}
+
+@keyframes modalMasuk {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Tombol Silang (Close) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff007f;
+}
+
+.modal-content h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.modal-content h2 span {
+    color: #45f3ff;
+    text-shadow: 0 0 10px #45f3ff;
+}
+
+.modal-subtitle {
+    color: #778899;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Form Input di Login */
+.input-box-login {
+    margin-bottom: 20px;
+}
+
+.input-box-login label {
+    display: block;
+    font-size: 0.9rem;
+    color: #c5a1ff;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-box-login input {
+    width: 100%;
+    padding: 12px 15px;
+    background: #0b0c10;
+    border: 1px solid #1f2833;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box-login input:focus {
+    border-color: #ff007f;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+}
+
+/* Opsi Tambahan */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #abb8c3;
+    margin-bottom: 25px;
+}
+
+.login-options input {
+    accent-color: #ff007f;
+}
+
+.login-options a {
+    color: #45f3ff;
+    text-decoration: none;
+}
+
+/* Tombol Submit Login */
+.btn-login-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #45f3ff, #ff007f);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+    transition: 0.3s;
+}
+
+.btn-login-submit:hover {
+    box-shadow: 0 4px 20px rgba(69, 243, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.register-link {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: #c5a1ff;
+    text-decoration: none;
+    font-weight: bold;
+}

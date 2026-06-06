@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANZ STORE - Top Up Game Murah & Terpercaya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body><div id="modalLogin" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="tutupModalLogin()">&times;</span>
+        <h2>LOGIN <span>RANZ STORE</span></h2>
+        <p class="modal-subtitle">Masuk untuk menikmati fitur riwayat transaksi kamu.</p>
+        
+        <form onsubmit="handleLogin(event)">
+            <div class="input-box-login">
+                <label>Email atau Username</label>
+                <input type="text" id="login-user" placeholder="Masukkan email Anda" required>
+            </div>
+            <div class="input-box-login">
+                <label>Password</label>
+                <input type="password" id="login-pass" placeholder="Masukkan password Anda" required>
+            </div>
+            <div class="login-options">
+                <label><input type="checkbox"> Ingat Saya</label>
+                <a href="#" onclick="alert('Fitur reset password sedang dalam perbaikan!')">Lupa Password?</a>
+            </div>
+            <button type="submit" class="btn-login-submit">Masuk Sekarang</button>
+        </form>
+        
+        <p class="register-link">Belum punya akun? <a href="#" onclick="alert('Pendaftaran akun baru ditutup sementara!')">Daftar Disini</a></p>
+    </div>
+</div>
+
+<script>
+    function bukaModalLogin(event) {
+        event.preventDefault(); // Mencegah halaman reload
+        document.getElementById('modalLogin').style.display = 'flex';
+    }
+
+    function tutupModalLogin() {
+        document.getElementById('modalLogin').style.display = 'none';
+    }
+
+    // Menutup pop-up jika pengguna mengklik area luar kotak login
+    window.onclick = function(event) {
+        const modal = document.getElementById('modalLogin');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    function handleLogin(event) {
+        event.preventDefault();
+        const user = document.getElementById('login-user').value;
+        
+        // Simulasi Login Sukses
+        alert('Selamat Datang Kembali, ' + user + '! Login berhasil (Simulasi).');
+        tutupModalLogin();
+    }
+</script>
+
+    <nav>
+        <div class="logo">RANZ<span>STORE</span></div>
+        <ul><nav>
+    <div class="logo">RANZ<span>STORE</span></div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#topup">Pilihan Game</a></li>
+        <li><a href="#" class="btn-login-nav" onclick="bukaModalLogin(event)">Login</a></li>
+    </ul>
+</nav>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#topup">Pilihan Game</a></li>
+            <li><a href="#testimoni">Testimoni</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="hero-content">
+            <h1>RANZ STORE</h1>
+            <p>Tempat Top Up Game Tercepat, Termurah, dan Amanah. Proses otomatis langsung masuk ke akun game kamu!</p>
+            <a href="#topup" class="btn-main">Mulai Top Up</a>
+        </div>
+    </header>
+
+    <section id="topup" class="topup-section">
+        <h2>PILIH GAME FAVORITMU</h2>
+        <p class="section-subtitle">Klik pada gambar game untuk membuka formulir pengisian data</p>
+
+        <div class="game-grid">
+            <div class="game-card" onclick="bukaForm('Mobile Legends', 'ml')">
+                <div class="badge">Populer</div>
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80" alt="Mobile Legends">
+                <div class="game-info">
+                    <h3>Mobile Legends</h3>
+                    <p>Proses 1-3 Menit</p>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="bukaForm('Free Fire', 'ff')">
+                <div class="badge">Instant</div>
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=400&q=80" alt="Free Fire">
+                <div class="game-info">
+                    <h3>Free Fire</h3>
+                    <p>Proses Otomatis</p>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="bukaForm('PUBG Mobile', 'pubg')">
+                <div class="badge">Hemat</div>
+                <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&w=400&q=80" alt="PUBG Mobile">
+                <div class="game-info">
+                    <h3>PUBG Mobile</h3>
+                    <p>UC Valid Legal</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="area-formulir" class="form-container" style="display: none;">
+            <div class="form-header">
+                <h3 id="judul-game">Form Top Up</h3>
+            </div>
+            
+            <form onsubmit="prosesTransaksi(event)">
+                <div class="form-group">
+                    <label>1. Masukkan Data Akun</label>
+                    <div class="input-row">
+                        <input type="number" id="user-id" placeholder="Masukkan Player ID" required>
+                        <input type="number" id="zone-id" placeholder="(Zone ID)" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Pilih Nominal Top Up</label>
+                    <div class="nominal-grid" id="nominal-options">
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Pilih Metode Pembayaran</label>
+                    <div class="pay-grid">
+                        <label class="pay-card">
+                            <input type="radio" name="payment" value="QRIS / ALL BANK" checked>
+                            <span>QRIS / All Bank</span>
+                        </label>
+                        <label class="pay-card">
+                            <input type="radio" name="payment" value="DANA">
+                            <span>DANA</span>
+                        </label>
+                        <label class="pay-card">
+                            <input type="radio" name="payment" value="GOPAY">
+                            <span>GOPAY</span>
+                        </label>
+                        <label class="pay-card">
+                            <input type="radio" name="payment" value="OVO">
+                            <span>OVO</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Beli Sekarang &amp; Bayar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 <strong>RANZ STORE</strong>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let gameTerpilih = "";
+        let itemTerpilih = "";
+
+        // Daftar harga & nominal tiap game
+        const listNominal = {
+            ml: [
+                "86 Diamonds - Rp20.000",
+                "172 Diamonds - Rp40.000",
+                "257 Diamonds - Rp60.000",
+                "706 Diamonds - Rp150.000"
+            ],
+            ff: [
+                "50 Diamonds - Rp8.000",
+                "70 Diamonds - Rp10.000",
+                "140 Diamonds - Rp20.000",
+                "355 Diamonds - Rp50.000"
+            ],
+            pubg: [
+                "60 UC - Rp15.000",
+                "325 UC - Rp65.000",
+                "660 UC - Rp130.000",
+                "1800 UC - Rp350.000"
+            ]
+        };
+
+        function bukaForm(namaGame, kodeGame) {
+            gameTerpilih = namaGame;
+            itemTerpilih = ""; // Reset pilihan nominal sebelumnya
+            
+            // Atur Judul Form
+            document.getElementById('judul-game').innerText = "TOP UP " + namaGame.toUpperCase();
+            
+            // Tampilkan/Sembunyikan Zone ID khusus Mobile Legends
+            const zoneInput = document.getElementById('zone-id');
+            if (kodeGame === 'ml') {
+                zoneInput.style.display = "block";
+                zoneInput.required = true;
+            } else {
+                zoneInput.style.display = "none";
+                zoneInput.required = false;
+                zoneInput.value = "";
+            }
+
+            // Generate Pilihan Paket game ke dalam HTML secara dinamis
+            const boxNominal = document.getElementById('nominal-options');
+            boxNominal.innerHTML = ""; // Bersihkan list lama
+
+            listNominal[kodeGame].forEach(paket => {
+                boxNominal.innerHTML += `
+                    <div class="nominal-item" onclick="pilihNominal(this, '${paket}')">
+                        ${paket}
+                    </div>
+                `;
+            });
+
+            // Munculkan kontainer formulir dengan transisi halus
+            const formArea = document.getElementById('area-formulir');
+            formArea.style.display = "block";
+            formArea.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function pilihNominal(elemen, value) {
+            // Hapus kelas 'active' dari semua pilihan paket sebelumnya
+            const semuaItem = document.querySelectorAll('.nominal-item');
+            semuaItem.forEach(item => item.classList.remove('active'));
+            
+            // Tambahkan kelas 'active' ke item yang baru diklik
+            elemen.classList.add('active');
+            itemTerpilih = value;
+        }
+
+        function prosesTransaksi(event) {
+            event.preventDefault();
+
+            if(!itemTerpilih) {
+                alert("Silakan pilih Nominal Top Up terlebih dahulu!");
+                return;
+            }
+
+            const idUser = document.getElementById('user-id').value;
+            const idZone = document.getElementById('zone-id').value;
+            const metodeBayar = document.querySelector('input[name="payment"]:checked').value;
+
+            // GANTI NOMOR DI BAWAH INI DENGAN NOMOR WHATSAPP KAMU (Gunakan kode 62 di depan)
+            const nomorPemilik = "6281514689097";
+
+            let pesanFormat = `*NOTIFIKASI ORDER RANZ STORE*\n\n` +
+                              `• *Game* : ${gameTerpilih}\n` +
+                              `• *User ID* : ${idUser} ${idZone ? '('+idZone+')' : ''}\n` +
+                              `• *Nominal* : ${itemTerpilih}\n` +
+                              `• *Metode Bayar* : ${metodeBayar}\n\n` +
+                              `Mohon segera diproses Admin!`;
+
+            let linkWA = `https://api.whatsapp.com/send?phone=${nomorPemilik}&text=${encodeURIComponent(pesanFormat)}`;
+            window.open(linkWA, '_blank');
+        }
+    </script>
+</body>
+</html>
